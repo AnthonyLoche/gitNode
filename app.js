@@ -40,7 +40,7 @@ app.get('/auth/github/callback', async (req, res) => {
     const accessToken = tokenResponse.data.access_token;
 
     const userResponse = await axios.get('https://api.github.com/user', {
-        headers: { Authorization: Bearer `${accessToken}` },
+        headers: { Authorization: `Bearer ${accessToken}` },
     });
 
     // Save user data in session
