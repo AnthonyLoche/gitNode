@@ -23,6 +23,10 @@ passport.use(new GitHubStrategy({
   }
 ));
 
+app.get('/', (req, res) => {
+  res.send('Hello World');
+})
+
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
