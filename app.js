@@ -45,7 +45,7 @@ app.get('/auth/github/callback', async (req, res) => {
 
     // Save user data in session
     req.session.user = userResponse.data;
-    res.redirect('http://localhost:5173'); // Redirect back to the frontend
+    res.redirect('https://vue-node-git.vercel.app/'); // Redirect back to the frontend
 });
 
 app.get('/api/user', (req, res) => {
