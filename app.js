@@ -42,11 +42,15 @@ app.use(passport.session());
 
 // Rotas de Login
 app.get('/auth/github', (req, res, next) => {
-    console.log(req.body)
-    const login = passport.authenticate('github', { scope: ['user:email'] })(req, res, next);
+    // console.log(req.body)
+    // const login = passport.authenticate('github', { scope: ['user:email'] })(req, res, next);
 
+    // console.log(login)
 
-    return {message: 'Login realizado com sucesso', response: login};
+    const url = `https://git-node.vercel.app`
+
+    const redirectUrl = `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&redirect_url=${url}&scope=user`;
+    res.redirect(redirectUrl)
 
 });
   
