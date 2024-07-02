@@ -14,7 +14,7 @@ const {GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET} = process.env;
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: "https://git-node.vercel.app/auth/github/callback"
+    callbackURL: "http://localhost:5173"
   },
   function(accessToken, refreshToken, profile, done) {
     console.log(profile);
@@ -42,6 +42,7 @@ app.use(passport.session());
 
 // Rotas de Login
 app.get('/auth/github', (req, res, next) => {
+    console.log(req.body)
     const login = passport.authenticate('github', { scope: ['user:email'] })(req, res, next);
 
 
