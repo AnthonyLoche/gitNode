@@ -13,7 +13,7 @@ app.use(session({
   secret: 'YOUR_SECRET_KEY',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false, httpOnly: true } // Secure should be true in production with HTTPS
+  cookie: { secure: false, httpOnly: false } // Secure should be true in production with HTTPS
 }));
 
 const CLIENT_ID = process.env.GITHUB_CLIENT_ID;
