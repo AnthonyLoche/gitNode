@@ -7,15 +7,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: 'https://vue-node-git.vercel.app', credentials: true }));
+app.use(cors({ origin: 'https://vue-node-git.vercel.app/', credentials: true }));
 
 app.use(session({
   secret: 'YOUR_SECRET_KEY',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true , httpOnly: false } // Secure should be true in production with HTTPS
+  cookie: { secure: true, httpOnly: false, sameSite: 'none' } // Secure should be true in production with HTTPS
 }));
-
 const CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 const CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
 const REDIRECT_URL = process.env.REDIRECT_URL;
