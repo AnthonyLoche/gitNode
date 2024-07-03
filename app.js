@@ -52,6 +52,8 @@ app.get('/api/user', (req, res) => {
   try {
     if (req.session.user) {
       res.json({ user: req.session.user });
+    } else {
+      res.status(401).json({ error: 'User not authenticated', data: req.session });
     }
   } catch (error) {
     console.log(error);
