@@ -49,6 +49,9 @@ app.get('/auth/github/callback', async (req, res) => {
 });
 
 app.get('/api/user', (req, res) => {
+  console.log("passo aqui tio")
+  console.log(req.session);
+  console.log(req.session.user);
   try {
     if (req.session.user) {
       res.json({ user: req.session.user });
